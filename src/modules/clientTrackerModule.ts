@@ -7,11 +7,10 @@ export class ClientTrackerModule extends BaseModule {
     constructor(config: Config) {
         super("ClientTracker", config);
 
-        this.config.modules.ClientTracker =
-            {
-                channel: "serverlog",
-                ...config.modules.ClientTracker
-            }
+        this.config.modules.ClientTracker = {
+            channel: "serverlog",
+            ...config.modules.ClientTracker
+        }
     }
 
     load(): void { }
