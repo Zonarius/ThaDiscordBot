@@ -3,25 +3,24 @@ import * as fs from "fs";
 import * as Path from "path";
 import * as Discord from "discord.js";
 import * as Functions from "./functions";
-import {BaseModule} from "./modules/baseModule";
-import {loadModules} from "./moduleManager";
-import {onExit} from "./onExit";
+import { BaseModule } from "./modules/baseModule";
+import { loadModules } from "./moduleManager";
+import { onExit } from "./onExit";
 
-const modules = new Map<string, BaseModule>();
 const client = new Discord.Client();
 
 loadModules(client);
 
-client.on('debug', (info : string) => {
+client.on('debug', (info: string) => {
     console.log(`Debug: ${info}`);
 });
-client.on('error', (error : Error) => {
+client.on('error', (error: Error) => {
     console.log(`Error: ${error.message}`);
 });
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.username}!`);
 });
-client.on('warn', (info : string) => {
+client.on('warn', (info: string) => {
     console.log(`Warning: ${info}`);
 });
 
@@ -33,5 +32,5 @@ onExit(async function () {
     process.exit();
 });
 
-let json:Config = JSON.parse(fs.readFileSync(Path.join(__dirname, "../config.json"), "utf-8"));
+let json: Config = JSON.parse(fs.readFileSync(Path.join(__dirname, "../config.json"), "utf-8"));
 client.login(json.token);

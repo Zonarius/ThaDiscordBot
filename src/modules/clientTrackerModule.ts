@@ -1,10 +1,9 @@
 import * as Discord from "discord.js";
 import * as Functions from "../functions";
-import {BaseModule} from "./baseModule";
+import { BaseModule } from "./baseModule";
 
 export class ClientTrackerModule extends BaseModule {
-    constructor() 
-    {
+    constructor() {
         super("ClientTracker");
     }
 
@@ -12,7 +11,7 @@ export class ClientTrackerModule extends BaseModule {
 
     unload(): void { }
 
-    registerEvents(client : Discord.Client): void {
+    registerEvents(client: Discord.Client): void {
         client.on('voiceStateUpdate', (before, after) => {
             if (before.voiceChannelID !== after.voiceChannelID) {
                 let msg;
@@ -25,7 +24,7 @@ export class ClientTrackerModule extends BaseModule {
                 }
                 else { // switch
                     msg = `**${after.user.username}** ging von Channel **${before.voiceChannel.name}** nach **${after.voiceChannel.name}**.`;
-                } 
+                }
 
                 Functions.getChannel(client, "testing").sendMessage(msg);
             }

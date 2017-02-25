@@ -1,21 +1,20 @@
 import * as Discord from "discord.js";
 
 export abstract class BaseModule {
-    name : string;
+    name: string;
 
-    constructor(name: string) 
-    {
+    constructor(name: string) {
         this.name = name;
     }
 
     // Called when the client starts. Set variables/read files/etc. here.
-    abstract load() : void;
+    abstract load(): void;
 
     // Called when the client stops. Write files/etc. here.
-    abstract unload() : void;
+    abstract unload(): void;
 
     // Called when the client starts. 
-    abstract registerEvents(client : Discord.Client) : void;
+    abstract registerEvents(client: Discord.Client): void;
 
     /*
     // Emitted whenever a channel is created.
