@@ -4,7 +4,7 @@ interface Config {
 
     modules: {
         ClientTracker?: ClientTrackerConfig;
-    }
+    };
 }
 
 interface ClientTrackerConfig {

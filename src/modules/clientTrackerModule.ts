@@ -10,7 +10,7 @@ export class ClientTrackerModule extends BaseModule {
         this.config.modules.ClientTracker = {
             channel: "serverlog",
             ...config.modules.ClientTracker
-        }
+        };
     }
 
     load(): void { }
@@ -18,7 +18,7 @@ export class ClientTrackerModule extends BaseModule {
     unload(): void { }
 
     registerEvents(client: Discord.Client): void {
-        client.on('voiceStateUpdate', (before, after) => {
+        client.on("voiceStateUpdate", (before, after) => {
             if (before.voiceChannelID !== after.voiceChannelID) {
                 let msg: string = `[${moment().format("HH:mm:ss")}] **${after.user.username}** `;
 

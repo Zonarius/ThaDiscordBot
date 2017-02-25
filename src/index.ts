@@ -18,25 +18,25 @@ const client = new Discord.Client();
 loadModules(client, config);
 
 if (config.debug) {
-    client.on('debug', (info: string) => {
+    client.on("debug", (info: string) => {
         console.log(`Debug: ${info}`);
     });
 }
-client.on('error', (error: Error) => {
+client.on("error", (error: Error) => {
     console.log(`Error: ${error.message}`);
 });
-client.on('warn', (info: string) => {
+client.on("warn", (info: string) => {
     console.log(`Warning: ${info}`);
 });
 
-client.on('ready', () => {
+client.on("ready", () => {
     console.log(`Logged in as ${client.user.username}!`);
 });
 onExit(async function () {
     await Functions.getChannel(client, "testing").sendMessage("Bye!");
     await client.destroy();
 
-    //graceful shutdown
+    // graceful shutdown
     process.exit();
 });
 
