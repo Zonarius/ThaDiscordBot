@@ -1,5 +1,8 @@
 # ThaDiscordBot
 
+[![Docker Automated build](https://img.shields.io/docker/automated/tharyo/thadiscordbot.svg)](https://hub.docker.com/r/tharyo/thadiscordbot/)
+[![Dependency Status](https://david-dm.org/ThaRyo/ThaDiscordBot.svg)](https://david-dm.org/ThaRyo/ThaDiscordBot)
+
 ## Guidelines
 * Follow [https://gitmoji.carloscuesta.me/](https://gitmoji.carloscuesta.me/) for your commit messages.
 
