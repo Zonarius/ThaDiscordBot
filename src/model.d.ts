@@ -3,7 +3,7 @@ interface Config {
     debug?: boolean;
 
     modules: {
-        ClientTracker: ClientTrackerConfig;
+        ClientTracker?: ClientTrackerConfig;
     }
 }
 
