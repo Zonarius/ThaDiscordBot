@@ -4,8 +4,8 @@ import { BaseModule } from "./modules/baseModule";
 
 var modules: BaseModule[] = [];
 
-export function loadModules(client: Discord.Client): void {
-    loadModule(client, new ClientTrackerModule());
+export function loadModules(client: Discord.Client, config: Config): void {
+    loadModule(client, new ClientTrackerModule(config));
 }
 
 function loadModule(client: Discord.Client, module: BaseModule): void {

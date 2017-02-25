@@ -1,10 +1,7 @@
 import * as Discord from "discord.js";
 
 export abstract class BaseModule {
-    name: string;
-
-    constructor(name: string) {
-        this.name = name;
+    constructor(protected name: string, protected config: Config) {
     }
 
     // Called when the client starts. Set variables/read files/etc. here.

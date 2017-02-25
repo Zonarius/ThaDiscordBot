@@ -7,17 +7,17 @@ import { BaseModule } from "./modules/baseModule";
 import { loadModules } from "./moduleManager";
 import { onExit } from "./onExit";
 
-let json: Config = JSON.parse(fs.readFileSync(Path.join(__dirname, "../config.json"), "utf-8"));
+let config: Config = JSON.parse(fs.readFileSync(Path.join(__dirname, "../config.json"), "utf-8"));
 
-if (!json.token) {
+if (!config.token) {
     console.log("Undefined token. Set the token in config.json");
     process.exit(1);
 }
 
 const client = new Discord.Client();
-loadModules(client);
+loadModules(client, config);
 
-if (json.debug) {
+if (config.debug) {
     client.on('debug', (info: string) => {
         console.log(`Debug: ${info}`);
     });
@@ -40,4 +40,4 @@ onExit(async function () {
     process.exit();
 });
 
-client.login(json.token);
+client.login(config.token);
