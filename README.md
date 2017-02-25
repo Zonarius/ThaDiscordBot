@@ -1,5 +1,8 @@
 # ThaDiscordBot
 
+## Guidelines
+* Follow [https://gitmoji.carloscuesta.me/](https://gitmoji.carloscuesta.me/) for your commit messages.
+
 ## Install
 1. Pull repository
 2. `npm install`
