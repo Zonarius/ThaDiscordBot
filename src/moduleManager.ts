@@ -2,7 +2,7 @@ import * as Discord from "discord.js";
 import { ClientTrackerModule } from "./modules/clientTrackerModule";
 import { BaseModule } from "./modules/baseModule";
 
-var modules: BaseModule[];
+var modules: BaseModule[] = [];
 
 export function loadModules(client: Discord.Client): void {
     loadModule(client, new ClientTrackerModule());
