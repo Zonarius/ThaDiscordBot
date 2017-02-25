@@ -1,39 +1,29 @@
+// Discord bot - connects to server, loads all modules and 
 import * as fs from "fs";
 import * as Path from "path";
 import * as Discord from "discord.js";
 import * as Functions from "./functions";
+import {BaseModule} from "./modules/baseModule";
+import {loadModules} from "./moduleManager";
 import {onExit} from "./onExit";
 
+const modules = new Map<string, BaseModule>();
 const client = new Discord.Client();
 
+loadModules(client);
+
+client.on('debug', (info : string) => {
+    console.log(`Debug: ${info}`);
+});
+client.on('error', (error : Error) => {
+    console.log(`Error: ${error.message}`);
+});
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.username}!`);
 });
-
-client.on('voiceStateUpdate', (before, after) => {
-    if (before.voiceChannelID !== after.voiceChannelID) {
-        let msg;
-
-        if (!before.voiceChannelID) { // joined
-            msg = `**${after.user.username}** hat sich in Channel **${after.voiceChannel.name}** eingeloggt.`;
-        }
-        else if (!after.voiceChannelID) {   // left
-            msg = `**${after.user.username}** hat die Verbindung getrennt.`;
-        }
-        else { // switch
-            msg = `**${after.user.username}** ging von Channel **${before.voiceChannel.name}** nach **${after.voiceChannel.name}**.`;
-        } 
-
-        Functions.getChannel(client, "testing").sendMessage(msg);
-    }
+client.on('warn', (info : string) => {
+    console.log(`Warning: ${info}`);
 });
-
-client.on('message', msg => {
-    if (msg.content === 'ping') {
-        msg.reply('Pong!!!!');
-    }
-});
-
 
 onExit(async function () {
     await Functions.getChannel(client, "testing").sendMessage("Bye!");
