@@ -7,6 +7,8 @@
 1. Pull repository
 2. `npm install`
 
+You can also user the [docker image hosted by docker hub](https://hub.docker.com/r/tharyo/thadiscordbot/).
+
 ## Configuration
 Copy config.example.json to config.json and edit to your likings.
 
