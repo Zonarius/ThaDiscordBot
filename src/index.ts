@@ -30,7 +30,7 @@ client.on('voiceStateUpdate', (before, after) => {
 
 client.on('message', msg => {
     if (msg.content === 'ping') {
-        msg.reply('Pong!!!');
+        msg.reply('Pong!!!!');
     }
 });
 
