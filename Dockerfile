@@ -6,7 +6,7 @@ RUN apk add --update tzdata \
 
 WORKDIR /app
 COPY "./package.json" "./package.json"
-RUN npm install
+RUN npm install --production
 
 COPY "./lib" "./lib/"
 ENTRYPOINT node "./lib/index.js"
