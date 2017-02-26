@@ -18,6 +18,6 @@ export function getEnvVars() {
         if (envs[key] === undefined) {
             delete envs[key];
         }
-    })
+    });
     return envs;
 }

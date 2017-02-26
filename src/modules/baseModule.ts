@@ -7,13 +7,19 @@ export abstract class BaseModule {
         }
     }
 
-    // Called when the client starts. Set variables/read files/etc. here.
+    /**
+     *  Called when the client starts. Set variables/read files/etc. here.
+     */
     abstract load(): void;
 
-    // Called when the client stops. Write files/etc. here.
+    /**
+     *  Called when the client stops. Write files/etc. here.
+     */
     abstract unload(): void;
 
-    // Called when the client starts.
+    /**
+     *  Called when the client starts.
+     */
     abstract registerEvents(client: Discord.Client): void;
 
     /*
