@@ -1,8 +1,8 @@
 interface Config {
-    token: string;
+    token?: string;
     debug?: boolean;
 
-    modules: {
+    modules?: {
         ClientTracker?: ClientTrackerConfig;
     };
 }

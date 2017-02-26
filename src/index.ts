@@ -7,10 +7,21 @@ import { BaseModule } from "./modules/baseModule";
 import { loadModules } from "./moduleManager";
 import { onExit } from "./onExit";
 
-let config: Config = JSON.parse(fs.readFileSync(Path.join(__dirname, "../config.json"), "utf-8"));
+let config: Config;
+let configPath = Path.join(__dirname, "../config.json");
+
+if (fs.existsSync(configPath)) {
+    config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+} else {
+    config = {
+        ...config,
+        ...Functions.getEnvVars()
+    };
+}
+
 
 if (!config.token) {
-    console.log("Undefined token. Set the token in config.json");
+    console.log("Undefined token. Set the token in config.json or as environment variable DISCORD_TOKEN");
     process.exit(1);
 }
 
