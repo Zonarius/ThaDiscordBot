@@ -11,4 +11,5 @@ export function onExit(fun) {
     }
 
     process.on("SIGINT", fun);
+    process.on("SIGTERM", fun);
 }
